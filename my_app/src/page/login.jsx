@@ -1,18 +1,19 @@
 import React from "react";
- import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     let navigate = useNavigate();
-    const [name ,setName] = React.useState(null)
+    const [name, setName] = React.useState(null)
+
 
     const sendData = (e) => {
         e.preventDefault()
-        navigate('/home' , { state: {userName: name}});
+        navigate('/home', { state: { userName: name } });
     }
 
-    return(
+    return (
         <form action="" onSubmit={(e) => sendData(e)}>
-            <input onChange={(e) => setName(e.target.value)} type="text" className="" name="name" required/>
+            <input onChange={(e) => setName(e.target.value)} type="text" className="" name="name" required />
             <button type="submit" className="">submit</button>
         </form>
     )

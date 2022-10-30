@@ -12,16 +12,16 @@
     <button onclick="message()">send</button>
     <h1></h1>
     <script defer>
-        const socket = io('http://localhost:4242')
+        const socket = io('http://localhost:3001')
 
         // socket.on("connection")
-        socket.on("message", (data) => {
+        socket.on("receive_message", (data) => {
             const h1 = document.getElementsByTagName('h1')[0]
             h1.innerHTML = data
         })
         const message = () => {
             const input = document.getElementsByTagName('input')[0]
-            socket.emit("message" , input.value)
+            socket.emit("send_message" , input.value)
         }
     </script>
 </body>
