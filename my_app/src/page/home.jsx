@@ -36,8 +36,8 @@ const Home = () => {
                     location.state.userName = newName
                     document.getElementById('message').value = ""
                     break
+                default:
             }
-
             return
 
         }
@@ -73,7 +73,7 @@ const Home = () => {
                 if (data.user !== location.state.userName && data.room !== 'default') {
                     const box_room = document.getElementById("box_room")
                     let div_room = document.createElement("div")
-                    div_room.innerHTML = "<span class='room_display'>" + data.room + "</span>" + "<button class='btn btn-success btn_joindre'>joindre</button>"
+                    div_room.innerHTML = "<span class='room_display'>" + data.room + "</span><button class='btn btn-success btn_joindre'>joindre</button>"
                     div_room.className = "room"
                     box_room.appendChild(div_room)
                     const btn_joindre = document.getElementsByClassName('btn_joindre')
@@ -116,7 +116,7 @@ const Home = () => {
                     document.getElementById('room').value = ""
                     const box_room = document.getElementById("box_room")
                     let div_room = document.createElement("div")
-                    div_room.innerHTML = "<span class='room_display'>" + data.room + "</span>" + "<button class='btn btn-success btn_inviter'>inviter</button>" +
+                    div_room.innerHTML = "<span class='room_display'>" + data.room + "</span><button class='btn btn-success btn_inviter'>inviter</button>" +
                         "<button class='btn btn-danger btn_supprimer'>supprimer</button>"
                     div_room.className = "room"
                     box_room.appendChild(div_room)
@@ -128,7 +128,7 @@ const Home = () => {
                     setRoomTitle(data.room)
                     document.getElementById('box_message').innerHTML = ''
                 }
-                else if(data.inviter !== "inviter"){
+                else if (data.inviter !== "inviter") {
                     document.getElementById("message_room").innerText = data.message
                 }
             })
